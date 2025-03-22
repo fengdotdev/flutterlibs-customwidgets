@@ -1,11 +1,17 @@
-import 'package:customwidgets/src/basic/dynamic_text.dart';
+
+
+import 'package:customwidgets/customwidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 
+
 void main() {
-  testWidgets('Verify DynamicText updates with controller', (WidgetTester tester) async {
+
+  
+
+
+   testWidgets('Verify DynamicText updates with controller', (WidgetTester tester) async {
     // Arrange - Create a TextEditingController and pump MyApp() widget to tester
     final controller = TextEditingController(text: 'Initial Text');
     await tester.pumpWidget(
@@ -22,5 +28,13 @@ void main() {
 
     // Assert - Check that DynamicText widget displays the updated text
     expect(find.text('Updated Text'), findsOneWidget);
+
+
+    controller.text = 'Updated Text 2';
+
+    await tester.pump();
+
+    expect(find.text('Updated Text 2'), findsOneWidget);
+  
   });
 }
